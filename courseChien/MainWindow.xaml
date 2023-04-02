@@ -1,0 +1,56 @@
+﻿<Window x:Class="courseChien.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:courseChien"
+        mc:Ignorable="d"
+        Title="Course Levrier ultra pro max woof woof" Height="700" Width="850">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <WrapPanel x:Name="CoursePanel" Grid.Row="0">
+            <Canvas Width="850" Height="230" x:Name="CanvasChiens">
+                <Image Height="230" Source="/circuit.png" Stretch="Fill" Width="850"/>
+            </Canvas>
+        </WrapPanel>
+        <GroupBox Grid.Row="1" Header="Salle des paris" FontSize="16" HorizontalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
+                    <Label FontWeight="Bold" Height="73" VerticalAlignment="Top" Content="Pari minimum : 5 écus" />
+                    <WrapPanel Orientation="Vertical" x:Name="ParieursPanel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0">
+                        <RadioButton x:Name="RadioJoe" Click="RadioBob_Click" IsChecked="true"/>
+                        <RadioButton x:Name="RadioBob" Click="RadioBob_Click"/>
+                        <RadioButton x:Name="RadioBill" Click="RadioBob_Click"/>
+                    </WrapPanel>
+                    <Label FontWeight="Bold" VerticalAlignment="Top" Margin="100,0,0,0" Content="Paris" />
+                    <WrapPanel Orientation="Vertical" x:Name="ParieursState" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,30,0,0">
+                        <TextBlock x:Name="JoeState" Text=""/>
+                        <TextBlock x:Name="BobState" Text=""/>
+                        <TextBlock x:Name="BillState" Text=""/>
+                    </WrapPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,10,13,58" Grid.Row="1">
+
+                    <TextBlock x:Name="PersonneName" VerticalAlignment="Bottom" Height="25" Width="50" HorizontalAlignment="Center" Text="test"/>
+                    <Button x:Name="pariButton" Click="pariButton_Click" Content="Parie" VerticalAlignment="Bottom" Height="25" Width="38"/>
+                    <TextBox Width="30"   x:Name="ecusNombre" 
+                   PreviewTextInput="MaskNumericInput" 
+                   DataObject.Pasting="MaskNumericPaste" VerticalAlignment="Bottom" Height="25"  />
+                    <TextBlock VerticalAlignment="Bottom" Height="25"><Run Text="écus sur le chien numéro"/></TextBlock>
+                    <TextBox   x:Name="chienNombre" 
+                   PreviewTextInput="MaskNumericInputChien" 
+                   DataObject.Pasting="MaskNumericPaste" VerticalAlignment="Bottom" Height="25" Width="20"  />
+                    <Button x:Name="StartRaceButton" Click="StartRaceButton_Click" Content="Lancer la course" VerticalAlignment="Bottom" Height="25"/>
+                </StackPanel>
+                <Button Grid.Row="1" x:Name="ResetButton" Click="ResetButton_Click" Height="31" VerticalAlignment="Bottom" Width="685" Content="reset"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
